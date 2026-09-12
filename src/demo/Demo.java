@@ -46,7 +46,7 @@ public class Demo {
         int loaded = train.loadFromWarehouse(warehouse);
 
         // 6. Состояние после загрузки
-        System.out.println("\n=== ПОСЛЕ ЗАГРУЗКИ ===");
+        System.out.println("\n=== ПОСЛЕ ЗАГРУЗКИ ========");
         System.out.println("Загружено грузовых единиц: " + loaded);
         System.out.println(warehouse);
         System.out.println(train);
