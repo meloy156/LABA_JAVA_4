@@ -59,13 +59,4 @@ public class RandomWarehouseGenerator {
             default -> throw new IllegalStateException("Нет такого выбора");
         };
     }
-
-
-    public static void main(String[] args) {
-        for (int i = 0; i < 5; i++) {
-            Warehouse w = generate();
-            System.out.println(w);
-            w.getAllCargo().forEach(c -> System.out.println("    " + c));
-        }
-    }
 }
