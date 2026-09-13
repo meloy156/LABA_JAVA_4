@@ -3,7 +3,7 @@ package cargo;
 public class Car extends Cargo {
     private static double weightPerCar = 1.0;
 
-    public  Car(int id, String name, int count) {
+    public  Car(int id, String name, double count) {
         super(id, name, weightPerCar * count);
     }
 
