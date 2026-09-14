@@ -14,7 +14,7 @@ import java.util.logging.SimpleFormatter;
  * Централизированный логгер и счетчик ошибок
  * каждый лог-файл - свой экземпляр и свой Filehander
  */
-public class ErrMsgLog {
+public class ErrMsgLog implements AutoCloseable {
 
     /** флаг конфига - logging.properties */
     private static boolean configLoaded = false;
@@ -72,6 +72,7 @@ public class ErrMsgLog {
     }
 
     /** Закрыть файловый хендлер и удалить его из лога */
+    @Override
     public void close() {
         if (fileHandler != null) {
             fileHandler.close();
