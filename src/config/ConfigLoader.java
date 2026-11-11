@@ -10,13 +10,13 @@ public class ConfigLoader {
     private final Properties property = new Properties();
 
     public ConfigLoader(String fileName) throws IOException {
-        // Просто открываем файл и читаем его
+
         try (InputStream is = new FileInputStream(fileName)) {
             property.load(is);
         }
     }
 
-    // ===== Пользователь =====
+    //  Пользователь 
     public String getLogin() {
         return property.getProperty("USER_LOGIN", "guest");
     }
@@ -33,7 +33,7 @@ public class ConfigLoader {
         return "root".equalsIgnoreCase(getGroup());
     }
 
-    // ===== Режимы =====
+    //  Режимы 
     public boolean isDebug() {
         return Boolean.parseBoolean(property.getProperty("DEBUG", "false"));
     }
@@ -42,7 +42,7 @@ public class ConfigLoader {
         return Boolean.parseBoolean(property.getProperty("AUTOTESTS", "false"));
     }
 
-    // ===== Пути =====
+    //  Пути 
     public String getDbFile() {
         return property.getProperty("DB_FILE", "data/cargo.db");
     }
