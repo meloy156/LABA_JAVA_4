@@ -10,9 +10,14 @@ public class Logger {
     private static final DateTimeFormatter FMT = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     private static String logFilePath = "data/app.log";
+    private static boolean debugMode = false;
+
 
     public static void setLogFile(String path) {
         logFilePath = path;
+    }
+    public static void setDebugMode(boolean mode) {
+        debugMode = mode;
     }
 
     public static void info(String message) {
@@ -25,7 +30,9 @@ public class Logger {
     }
 
     public static void debug(String message) {
-        write("DEBUG", message);
+        if (debugMode) {
+            write("DEBUG", message);
+        }
     }
 
 

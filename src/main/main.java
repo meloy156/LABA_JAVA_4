@@ -25,8 +25,16 @@ public class main {
             // Загрузка конфига
             ConfigLoader config = new ConfigLoader("config.ini");
             Logger.setLogFile(config.getLogFile());
-            Logger.info("\n\n\n\n||||| СТАРТ ПРОГРАММЫ |||||");
+            Logger.setDebugMode(config.isDebug());
 
+            Logger.info("\n\n\n\n");
+            Logger.debug("Путь к БД из конфига: " + config.getDbFile());
+            Logger.debug("Конфиг загружен из файла: config.ini");
+
+
+
+
+            Logger.info("||||| СТАРТ ПРОГРАММЫ |||||");
 
             // Авторизация
             if (!Authorization.login(config, scanner, print)) {
