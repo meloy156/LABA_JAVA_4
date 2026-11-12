@@ -9,7 +9,6 @@ import warehouse.Warehouse;
 import tests.Autotests;
 
 import java.io.PrintStream;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class main {
@@ -58,9 +57,11 @@ public class main {
                 flagRunning = menu.run();
             }
 
-            Logger.info("||||| ЗАВЕРШЕНЕИЕ ПРОГРАММЫ |||||");
+            Logger.info("||||| ЗАВЕРШЕНИЕ ПРОГРАММЫ |||||");
+
+
         } catch (Exception e) {
-            print.println("ОШибка: " + e.getMessage());
+            print.println("Ошибка: " + e.getMessage());
             Logger.error("Критическая ошибка: " + e.getMessage());
         }
     }

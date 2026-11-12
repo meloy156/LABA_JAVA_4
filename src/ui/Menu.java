@@ -1,6 +1,7 @@
 package ui;
 
 import cargo.*;
+import log.Logger;
 import storage.BDWarehouse;
 import tests.Autotests;
 
@@ -42,9 +43,23 @@ public class Menu {
             case "2" -> addCargo();
             case "3" -> deleteCargo();
             case "7" -> {
-                if (isRoot)
-                    System.out.println("[ОТКЛАДКА] Сейчас в базе: ");
-                else System.out.println("Доступ запрещен");
+                if (isRoot) {
+                    System.out.println("/// ОТЛАДОЧНАЯ ИНФОРМАЦИЯ ///");
+                    System.out.println("Всего грузов на складе: " + bdWarehouse.getAllCargo().size());
+                    System.out.println("Следующий свободный ID: " + bdWarehouse.nextId());
+
+                    Logger.debug("/// СИСТЕМНАЯ ОТЛАДКА ///");
+                    Logger.debug("Всего грузов на складе: " + bdWarehouse.getAllCargo().size());
+
+                    System.out.println("Содержимое склада (ID | Тип | Имя):");
+                    for (Cargo c : bdWarehouse.getAllCargo()) {
+                        System.out.println("  " + c.getId() + " | " + c.getClass().getSimpleName() + " | " + c.getName());
+                        Logger.debug("Элемент в БД: ID=" + c.getId() + ", Тип=" + c.getClass().getSimpleName());
+                    }
+
+                    System.out.println("-------------------------------");
+
+                } else System.out.println("Доступ запрещен");
             }
             case "8" -> {
                 if (isRoot) {

@@ -87,6 +87,7 @@ public class BDWarehouse {
     // Добавить
     public void add(Cargo cargo) {
         currentWarehouse.addCargo(cargo);
+        Logger.debug("Добавлен в БД:  [ID] = " + cargo.getId());
         saveAll();
     }
 
@@ -102,6 +103,7 @@ public class BDWarehouse {
             return false;
 
         currentWarehouse.takeCargoById(id);
+        Logger.debug("Удален из БД:  [ID] = " + id);
         saveAll();
         return true;
     }
