@@ -2,6 +2,7 @@ package ui;
 
 import cargo.*;
 import storage.BDWarehouse;
+import tests.Autotests;
 
 import java.util.Locale;
 import java.util.Scanner;
@@ -20,7 +21,7 @@ public class Menu {
 
 
     public boolean run() {
-        System.out.println("||||| Главное меню ||||||");
+        System.out.println("\n\n\n||||| Главное меню ||||||");
         System.out.println("1. Показать все грузы");
         System.out.println("2. Добавить новый груз");
         System.out.println("3. Удалить груз по ID");
@@ -32,7 +33,7 @@ public class Menu {
             System.out.println("8. Запуск автотестов");
         }
 
-        System.out.println("Выберите действие");
+        System.out.println("Выберите действие: ");
         String choise = scanner.nextLine().trim();
 
 
@@ -46,13 +47,14 @@ public class Menu {
                 else System.out.println("Доступ запрещен");
             }
             case "8" -> {
-                if (isRoot)
+                if (isRoot) {
                     System.out.println("[Автотесты] Запуск...");
-                else System.out.println("Доступ запрещен");
+                    Autotests.runAll(System.out);
+                } else System.out.println("Доступ запрещен");
             }
             case "0" -> {
                 System.out.println("Выход...");
-                return true;
+                return false;
             }
             default -> System.out.println("Неверный выбор.");
         }

@@ -20,7 +20,7 @@ public class Authorization {
         // Проверка логина и пароля
         if (userLogin.equals(config.getLogin()) && userPassword.equals(config.getPassword())) {
             printStream.println(" Вход выполнен -- " + userLogin);
-            Logger.info("Успешный вход. Пользователь: " + userLogin + "Группа: " + config.getGroup());
+            Logger.info("Успешный вход. Пользователь: " + userLogin + " Группа: " + config.getGroup());
             return true;
         } else {
             printStream.println("Неверный логин или пароль. ");
