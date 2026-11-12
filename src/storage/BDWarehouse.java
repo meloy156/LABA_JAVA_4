@@ -164,6 +164,9 @@ public class BDWarehouse {
         }
     }
 
+    public boolean isEmpty() {
+        return currentWarehouse.isEmpty();
+    }
 
     public int size() {
         return currentWarehouse.size();
