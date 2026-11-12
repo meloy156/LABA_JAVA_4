@@ -6,6 +6,7 @@ import warehouse.Warehouse;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 
 
 public class BDWarehouse {
@@ -161,6 +162,15 @@ public class BDWarehouse {
             Logger.error("Ошибка парсинга строки БД: " + line + "|" + e.getMessage());
             return null;
         }
+    }
+
+
+    public int size() {
+        return currentWarehouse.size();
+    }
+
+    public List<Cargo> getAllCargo() {
+        return currentWarehouse.getAllCargo();
     }
 
 }
