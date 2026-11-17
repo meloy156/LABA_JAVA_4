@@ -62,12 +62,27 @@ public class CollectionBenchmark {
             logger.log(typeName);
 
 
+            // ===== 1. ПРОГРЕВ JIT и загрузка классов =====
+            // Не логируем, просто чтобы JVM «разогрелась» на этом размере
+            for (int i = 0; i < 1000; i++) {
+                Warehouse w = RandomWarehouseGenerator.generate();
+                list.add(w);
+            }
+            list.clear();
+
+            // ===== 2. ЗАРАНЕЕ генерируем все склады =====
+            // Только add будет в замере, а не add + generate
+            List<Warehouse> preGenerated = new ArrayList<>(size);
+            for (int i = 0; i < size; i++) {
+                preGenerated.add(RandomWarehouseGenerator.generate());
+            }
+
             // ---------- ADD-----------------
             long addTotalTime = 0;
             for (int i = 0; i < size; i++) {
                 try {
                     long start = System.nanoTime();
-                    list.add(RandomWarehouseGenerator.generate());
+                    list.add(preGenerated.get(i));
                     long duration = System.nanoTime() - start;
                     addTotalTime += duration;
                     logger.log("add, ID = " + i + ", " + duration);
