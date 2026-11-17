@@ -2,13 +2,13 @@ package parselogs;
 
 import java.util.Objects;
 
-public class logFileResult {
+public class LogFileResult {
 
     public final ArrayOrLinked collectionType;
     public int size;
     public long addAvg, removeAvg, addTotal, removeTotal;
 
-    public logFileResult(ArrayOrLinked collectionType, int size, long addAvg, long removeAvg, long addTotal, long removeTotal) {
+    public LogFileResult(ArrayOrLinked collectionType, int size, long addAvg, long removeAvg, long addTotal, long removeTotal) {
         this.collectionType = collectionType;
         this.size = size;
         this.addAvg = addAvg;
@@ -45,7 +45,7 @@ public class logFileResult {
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        logFileResult that = (logFileResult) o;
+        LogFileResult that = (LogFileResult) o;
         return size == that.size && addAvg == that.addAvg && removeAvg == that.removeAvg && addTotal == that.addTotal && removeTotal == that.removeTotal && collectionType == that.collectionType;
     }
 
